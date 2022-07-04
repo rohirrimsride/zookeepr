@@ -1,7 +1,9 @@
 const express = require('express');
+const { animals } = require('./data/animal.json');
+
 const PORT = process.env.PORT || 3001;
 const app = express();
-const { animals } = require('./data/animal.json');
+
 
 function filterByQuery(query, animalsArray) {
     let personalityTraitsArray = [];
@@ -12,7 +14,6 @@ function filterByQuery(query, animalsArray) {
         } else {
             personalityTraitsArray = query.personalityTraits;
         }
-        // Loop through each trait in the personalityTraits array:
         personalityTraitsArray.forEach(trait => {
             filteredResults = filteredResults.filter(
                 animal => animal.personalityTraits.indexOf(trait) !== -1
@@ -40,7 +41,6 @@ app.get('/api/animals', (req, res) => {
     let results = animals;
     if (req.query) {
         results = filterByQuery(req.query, results);
-        // console.log(results);
     }
     res.json(results);
 });
