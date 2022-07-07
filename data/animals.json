@@ -108,6 +108,15 @@
         "hungry"
       ],
       "id": "10"
+    },
+    {
+      "name": "Sandy",
+      "species": "Turtle",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "loving"
+      ],
+      "id": "11"
     }
   ]
 }
